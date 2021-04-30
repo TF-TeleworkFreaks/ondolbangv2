@@ -41,9 +41,9 @@ public class DBConnection {
         return isValid;
     }
 
-    public void createOnbidTable(){
+    public void createItemsTable(){
         try {
-            stat.executeUpdate("CREATE TABLE ONBID" +
+            stat.executeUpdate("CREATE TABLE items" +
                     "(   PLNM_NO           INT,\n" +
                     "    PBCT_NO           INT,\n" +
                     "    PBCT_CDTN_NO      INT not null PRIMARY KEY,\n" +
@@ -73,16 +73,16 @@ public class DBConnection {
         }
     }
 
-    public void deleteOnbidTable(){
+    public void deleteItemsTable(){
         try {
-            stat.executeUpdate("DELETE FROM ONBID");
+            stat.executeUpdate("DELETE FROM items");
         } catch (SQLException e) {
             System.out.println("DELETE Fail");
             e.printStackTrace();
         }
     }
 
-    public void insertOnbidTable(
+    public void insertItemsTable(
             int PLNM_NO, int PBCT_NO, int PBCT_CDTN_NO, int CLTR_NO,
             int CLTR_HSTR_NO, String SCRN_GRP_CD, String CTGR_FULL_NM,
             String BID_MNMT_NO, String CLTR_NM, String CLTR_MNMT_NO,
@@ -91,7 +91,7 @@ public class DBConnection {
             String APSL_ASES_AVG_AMT, String FEE_RATE, LocalDateTime After_PBCT_BEGN_DTM,
             LocalDateTime After_PBCT_CLS_DTM, String PBCT_CLTR_STAT_NM, String USCBD_CNT){
         try {
-            stat.executeUpdate("INSERT INTO ONBID VALUES " +
+            stat.executeUpdate("INSERT INTO items VALUES " +
                     "(" + PLNM_NO + "," +
                     "" + PBCT_NO + "," +
                     "" + PBCT_CDTN_NO + "," +
@@ -121,9 +121,9 @@ public class DBConnection {
     }
 
 
-    public void dropOnbidTable(){
+    public void dropItemsTable(){
         try {
-            stat.executeUpdate("DROP TABLE ONBID");
+            stat.executeUpdate("DROP TABLE items");
         } catch (SQLException e) {
             System.out.println("DROP Fail");
             e.printStackTrace();

@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 class OpenApiParsingXML {
-    public static void printBanner(){
+    public static void printBanner() {
         System.out.println(" ,-----.  ,------.  ,------. ,--.  ,--.     ,---.   ,------.  ,--.   ,------.    ,---.   ,------.   ,---.   ,------. ,------.  \n" +
                 "'  .-.  ' |  .--. ' |  .---' |  ,'.|  |    /  O  \\  |  .--. ' |  |   |  .--. '  /  O  \\  |  .--. ' '   .-'  |  .---' |  .--. ' \n" +
                 "|  | |  | |  '--' | |  `--,  |  |' '  |   |  .-.  | |  '--' | |  |   |  '--' | |  .-.  | |  '--'.' `.  `-.  |  `--,  |  '--'.' \n" +
@@ -126,6 +126,25 @@ class OpenApiParsingXML {
 
         DBConnection dbConnect = new DBConnection(driver, url, user, password);
         if(dbConnect.activateConnectDB()){
+            System.out.println("TABLE CREATE ? (Y/N)");
+            String isCreate = br.readLine();
+            if(isCreate.equals("Y")){
+                dbConnect.createOnbidTable();
+            }
+            else if(!isCreate.equals("N")){
+                System.out.println("올바른 입력을 하시기 바랍니다.");
+                return;
+            }
+            System.out.println("TABLE DROP ? (Y/N)");
+            String isDrop = br.readLine();
+            if(isDrop.equals("Y")){
+                dbConnect.dropOnbidTable();
+
+            }
+            else if(!isDrop.equals("N")){
+                System.out.println("올바른 입력을 하시기 바랍니다.");
+                return;
+            }
             dbConnect.deleteOnbidTable();
             System.out.println("API serviceKey 입력 : ");
             String serviceKey = br.readLine();

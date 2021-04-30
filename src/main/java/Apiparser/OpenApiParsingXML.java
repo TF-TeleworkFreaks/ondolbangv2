@@ -23,7 +23,7 @@ class OpenApiParsingXML {
                 "|  | |  | |  '--' | |  `--,  |  |' '  |   |  .-.  | |  '--' | |  |   |  '--' | |  .-.  | |  '--'.' `.  `-.  |  `--,  |  '--'.' \n" +
                 "'  '-'  ' |  | --'  |  `---. |  | `   |   |  | |  | |  | --'  |  |   |  | --'  |  | |  | |  |\\  \\  .-'    | |  `---. |  |\\  \\  \n" +
                 " `-----'  `--'      `------' `--'  `--'   `--' `--' `--'      `--'   `--'      `--' `--' `--' '--' `-----'  `------' `--' '--'");
-        System.out.println("이용기관 공매물건조회 서비스 OPEN API Parsing 프로그램입니다. [현재 단일 페이지만 가능합니다. 추후 모든 데이터 조회 기능 추가]");
+        System.out.println("물건정보조회서비스 OPEN API Parsing 프로그램입니다. [현재 단일 페이지만 가능합니다. 추후 모든 데이터 조회 기능 추가]");
     }
 
     private static String getTagValue(String tag, Element element) {
@@ -43,8 +43,7 @@ class OpenApiParsingXML {
     public static Document parsingAPIUrl(String serviceKey, String numOfRows) throws ParserConfigurationException, IOException, SAXException {
         String url = "http://openapi.onbid.co.kr/openapi/services/" +
                 "KamcoPblsalThingInquireSvc/getKamcoPbctCltrList?serviceKey=" +
-                serviceKey + "&numOfRows=" + numOfRows;
-
+                serviceKey + "&CTGR_HIRK_ID_MID=10200"+ "&numOfRows=" + numOfRows;
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         return documentBuilder.parse(url);
@@ -53,8 +52,6 @@ class OpenApiParsingXML {
     public static void approachAPIJSON(Document doc, DBConnection dbConnect){
         doc.getDocumentElement().normalize();
         System.out.println("Root element : " + doc.getDocumentElement().getNodeName()); //XML의 최상위 노드를 리턴
-        System.out.println(doc.getLastChild());
-
         NodeList nodeList = doc.getElementsByTagName("item");
         System.out.println("Parsing List = " + nodeList.getLength()); //item노드의 개수를 리턴, 즉 한 페이지당 리턴되는 item의 개수
         for (int temp = 0; temp < nodeList.getLength(); temp++) {

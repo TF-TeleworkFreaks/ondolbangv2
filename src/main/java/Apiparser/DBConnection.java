@@ -41,6 +41,38 @@ public class DBConnection {
         return isValid;
     }
 
+    public void createOnbidTable(){
+        try {
+            stat.executeUpdate("CREATE TABLE ONBID" +
+                    "(   PLNM_NO           INT,\n" +
+                    "    PBCT_NO           INT,\n" +
+                    "    PBCT_CDTN_NO      INT not null PRIMARY KEY,\n" +
+                    "    CLTR_NO           INT,\n" +
+                    "    CLTR_HSTR_NO      INT,\n" +
+                    "    SCRN_GRP_CD       VARCHAR,\n" +
+                    "    CTGR_FULL_NM      VARCHAR,\n" +
+                    "    BID_MNMT_NO       VARCHAR,\n" +
+                    "    CLTR_NM           VARCHAR,\n" +
+                    "    CLTR_MNMT_NO      VARCHAR,\n" +
+                    "    LDNM_ADRS         VARCHAR,\n" +
+                    "    NMRD_ADRS         VARCHAR,\n" +
+                    "    DPSL_MTD_CD       VARCHAR,\n" +
+                    "    DPSL_MTD_NM       VARCHAR,\n" +
+                    "    BID_MTD_NM        VARCHAR,\n" +
+                    "    MIN_BID_PRC       VARCHAR,\n" +
+                    "    APSL_ASES_AVG_AMT VARCHAR,\n" +
+                    "    FEE_RATE          VARCHAR,\n" +
+                    "    PBCT_BEGN_DTM     DATETIME,\n" +
+                    "    PBCT_CLS_DTM      DATETIME,\n" +
+                    "    PBCT_CLTR_STAT_NM VARCHAR,\n" +
+                    "    USCBD_CNT         INT\n" +
+                    ");");
+        } catch (SQLException e) {
+            System.out.println("CREATE Fail");
+            e.printStackTrace();
+        }
+    }
+
     public void deleteOnbidTable(){
         try {
             stat.executeUpdate("DELETE FROM ONBID");
@@ -83,7 +115,17 @@ public class DBConnection {
                     "'" + PBCT_CLTR_STAT_NM + "'," +
                     "'" + USCBD_CNT +"')");
         } catch (SQLException e) {
-            System.out.println("INSERT 실패");
+            System.out.println("INSERT Fail");
+            e.printStackTrace();
+        }
+    }
+
+
+    public void dropOnbidTable(){
+        try {
+            stat.executeUpdate("DROP TABLE ONBID");
+        } catch (SQLException e) {
+            System.out.println("DROP Fail");
             e.printStackTrace();
         }
     }

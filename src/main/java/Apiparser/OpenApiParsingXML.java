@@ -58,7 +58,7 @@ class OpenApiParsingXML {
             Node node = nodeList.item(temp);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 Element element = (Element) node;
-                dbConnect.insertOnbidTable(
+                dbConnect.insertItemsTable(
                         Integer.parseInt(getTagValue("PLNM_NO", element)),
                         Integer.parseInt(getTagValue("PBCT_NO", element)),
                         Integer.parseInt(getTagValue("PBCT_CDTN_NO", element)),
@@ -126,7 +126,7 @@ class OpenApiParsingXML {
             System.out.println("TABLE CREATE ? (Y/N)");
             String isCreate = br.readLine();
             if(isCreate.equals("Y")){
-                dbConnect.createOnbidTable();
+                dbConnect.createItemsTable();
             }
             else if(!isCreate.equals("N")){
                 System.out.println("올바른 입력을 하시기 바랍니다.");
@@ -135,14 +135,14 @@ class OpenApiParsingXML {
             System.out.println("TABLE DROP ? (Y/N)");
             String isDrop = br.readLine();
             if(isDrop.equals("Y")){
-                dbConnect.dropOnbidTable();
+                dbConnect.dropItemsTable();
 
             }
             else if(!isDrop.equals("N")){
                 System.out.println("올바른 입력을 하시기 바랍니다.");
                 return;
             }
-            dbConnect.deleteOnbidTable();
+            dbConnect.deleteItemsTable();
             System.out.println("API serviceKey 입력 : ");
             String serviceKey = br.readLine();
             System.out.println("API 페이지당 데이터 개수 입력 : ");

@@ -14,6 +14,11 @@ public class ItemsConfig {
     }
 
     @Bean
+    public ItemsService itemsService(){
+        return new ItemsService(itemsRepository());
+    }
+
+    @Bean
     public ItemsRepository itemsRepository() {
         return new JPAItemsRepository(em);
     }

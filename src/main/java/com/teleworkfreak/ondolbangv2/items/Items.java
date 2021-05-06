@@ -16,85 +16,84 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 public class Items {
-    private int PLNM_NO;
+    private int gonggoNum;
 
-    private int PBCT_NO;
+    private int gongmaeNum;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int PBCT_CDTN_NO;
+    private int gongmaeConditionNum;
 
-    private int CLTR_NO;
+    private int itemNum;
 
-    private int CLTR_HSTR_NO;
+    private int itemHistoryNum;
 
-    private String SCRN_GRP_CD;
+    private String screenGroupCode;
 
-    private String CTGR_FULL_NM;
+    private String categoryName;
 
-    private String BID_MNMT_NO;
+    private String bidNum;
 
-    private String CLTR_NM;
+    private String itemName;
 
-    private String CLTR_MNMT_NO;
+    private String itemManageNum;
 
-    private String LDNM_ADRS;
+    private String addressOld;
 
-    private String NMRD_ADRS;
+    private String addressNew;
 
-    private String DPSL_MTD_CD;
+    private String disposalMethodCode;
 
-    private String DPSL_MTD_NM;
+    private String disposalMethodName;
 
-    private String BID_MTD_NM;
+    private String bidMethod;
 
-    private String MIN_BID_PRC;
+    private String minimumBidPrice;
 
-    private String APSL_ASES_AVG_AMT;
+    private String averagePrice;
 
-    private String FEE_RATE;
+    private String feeRate;
 
-    private LocalDateTime PBCT_BEGN_DTM;
+    private LocalDateTime bidStartDate;
 
-    private LocalDateTime PBCT_CLS_DTM;
+    private LocalDateTime bidEndDate;
 
-    private String PBCT_CLTR_STAT_NM;
+    private String itemStatus;
 
-    private int USCBD_CNT;
+    private int bidFailCount;
 
 
     @Builder
-    public Items(
-            int PLNM_NO, int PBCT_NO, int PBCT_CDTN_NO, int CLTR_NO,
-            int CLTR_HSTR_NO, String SCRN_GRP_CD, String CTGR_FULL_NM,
-            String BID_MNMT_NO, String CLTR_NM, String CLTR_MNMT_NO,
-            String LDNM_ADRS, String NMRD_ADRS, String DPSL_MTD_CD,
-            String DPSL_MTD_NM, String BID_MTD_NM, String MIN_BID_PRC,
-            String APSL_ASES_AVG_AMT, String FEE_RATE,
-            LocalDateTime PBCT_BEGN_DTM, LocalDateTime PBCT_CLS_DTM,
-            String PBCT_CLTR_STAT_NM, int USCBD_CNT)
+    public Items(int gonggoNum, int gongmaeNum, int gongmaeConditionNum,
+                 int itemNum, int itemHistoryNum, String screenGroupCode,
+                 String categoryName, String bidNum, String itemName,
+                 String itemManageNum, String addressOld, String addressNew,
+                 String disposalMethodCode, String disposalMethodName, String bidMethod,
+                 String minimumBidPrice, String averagePrice, String feeRate,
+                 LocalDateTime bidStartDate, LocalDateTime bidEndDate,
+                 String itemStatus, int bidFailCount)
     {
-        this.PLNM_NO = PLNM_NO;
-        this.PBCT_NO = PBCT_NO;
-        this.PBCT_CDTN_NO = PBCT_CDTN_NO;
-        this.CLTR_NO = CLTR_NO;
-        this.CLTR_HSTR_NO = CLTR_HSTR_NO;
-        this.SCRN_GRP_CD = SCRN_GRP_CD;
-        this.CTGR_FULL_NM = CTGR_FULL_NM;
-        this.BID_MNMT_NO = BID_MNMT_NO;
-        this.CLTR_NM = CLTR_NM;
-        this.CLTR_MNMT_NO = CLTR_MNMT_NO;
-        this.LDNM_ADRS = LDNM_ADRS;
-        this.NMRD_ADRS = NMRD_ADRS;
-        this.DPSL_MTD_CD = DPSL_MTD_CD;
-        this.DPSL_MTD_NM = DPSL_MTD_NM;
-        this.BID_MTD_NM = BID_MTD_NM;
-        this.MIN_BID_PRC = MIN_BID_PRC;
-        this.APSL_ASES_AVG_AMT = APSL_ASES_AVG_AMT;
-        this.FEE_RATE = FEE_RATE;
-        this.PBCT_BEGN_DTM = PBCT_BEGN_DTM;
-        this.PBCT_CLS_DTM = PBCT_CLS_DTM;
-        this.PBCT_CLTR_STAT_NM = PBCT_CLTR_STAT_NM;
-        this.USCBD_CNT = USCBD_CNT;
+        this.gonggoNum = gonggoNum;
+        this.gongmaeNum = gongmaeNum;
+        this.gongmaeConditionNum = gongmaeConditionNum;
+        this.itemNum = itemNum;
+        this.itemHistoryNum = itemHistoryNum;
+        this.screenGroupCode = screenGroupCode;
+        this.categoryName = categoryName;
+        this.bidNum = bidNum;
+        this.itemName = itemName;
+        this.itemManageNum = itemManageNum;
+        this.addressOld = addressOld;
+        this.addressNew = addressNew;
+        this.disposalMethodCode = disposalMethodCode;
+        this.disposalMethodName = disposalMethodName;
+        this.bidMethod = bidMethod;
+        this.minimumBidPrice = minimumBidPrice;
+        this.averagePrice = averagePrice;
+        this.feeRate = feeRate;
+        this.bidStartDate = bidStartDate;
+        this.bidEndDate = bidEndDate;
+        this.itemStatus = itemStatus;
+        this.bidFailCount = bidFailCount;
     }
 }

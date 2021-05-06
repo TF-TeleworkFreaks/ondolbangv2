@@ -44,28 +44,28 @@ public class DBConnection {
     public void createItemsTable(){
         try {
             stat.executeUpdate("CREATE TABLE items" +
-                    "(   PLNM_NO           INT,\n" +
-                    "    PBCT_NO           INT,\n" +
-                    "    PBCT_CDTN_NO      INT not null PRIMARY KEY,\n" +
-                    "    CLTR_NO           INT,\n" +
-                    "    CLTR_HSTR_NO      INT,\n" +
-                    "    SCRN_GRP_CD       VARCHAR,\n" +
-                    "    CTGR_FULL_NM      VARCHAR,\n" +
-                    "    BID_MNMT_NO       VARCHAR,\n" +
-                    "    CLTR_NM           VARCHAR,\n" +
-                    "    CLTR_MNMT_NO      VARCHAR,\n" +
-                    "    LDNM_ADRS         VARCHAR,\n" +
-                    "    NMRD_ADRS         VARCHAR,\n" +
-                    "    DPSL_MTD_CD       VARCHAR,\n" +
-                    "    DPSL_MTD_NM       VARCHAR,\n" +
-                    "    BID_MTD_NM        VARCHAR,\n" +
-                    "    MIN_BID_PRC       VARCHAR,\n" +
-                    "    APSL_ASES_AVG_AMT VARCHAR,\n" +
-                    "    FEE_RATE          VARCHAR,\n" +
-                    "    PBCT_BEGN_DTM     DATETIME,\n" +
-                    "    PBCT_CLS_DTM      DATETIME,\n" +
-                    "    PBCT_CLTR_STAT_NM VARCHAR,\n" +
-                    "    USCBD_CNT         INT\n" +
+                    "(   gonggoNum           INT,\n" +
+                    "    gongmaeNum           INT,\n" +
+                    "    gongmaeConditionNum      INT not null PRIMARY KEY,\n" +
+                    "    itemNum           INT,\n" +
+                    "    itemHistoryNum      INT,\n" +
+                    "    screenGroupCode       VARCHAR,\n" +
+                    "    categoryName      VARCHAR,\n" +
+                    "    bidNum       VARCHAR,\n" +
+                    "    itemName           VARCHAR,\n" +
+                    "    itemManageNum      VARCHAR,\n" +
+                    "    addressOld         VARCHAR,\n" +
+                    "    addressNew         VARCHAR,\n" +
+                    "    disposalMethodCode       VARCHAR,\n" +
+                    "    disposalMethodName       VARCHAR,\n" +
+                    "    bidMethod        VARCHAR,\n" +
+                    "    minimumBidPrice       VARCHAR,\n" +
+                    "    averagePrice VARCHAR,\n" +
+                    "    feeRate          VARCHAR,\n" +
+                    "    bidStartDate     DATETIME,\n" +
+                    "    bidEndDate      DATETIME,\n" +
+                    "    itemStatus VARCHAR,\n" +
+                    "    bidFailCount         INT\n" +
                     ");");
         } catch (SQLException e) {
             System.out.println("CREATE Fail");
@@ -83,37 +83,37 @@ public class DBConnection {
     }
 
     public void insertItemsTable(
-            int PLNM_NO, int PBCT_NO, int PBCT_CDTN_NO, int CLTR_NO,
-            int CLTR_HSTR_NO, String SCRN_GRP_CD, String CTGR_FULL_NM,
-            String BID_MNMT_NO, String CLTR_NM, String CLTR_MNMT_NO,
-            String LDNM_ADRS, String NMRD_ADRS, String DPSL_MTD_CD,
-            String DPSL_MTD_NM, String BID_MTD_NM, String MIN_BID_PRC,
-            String APSL_ASES_AVG_AMT, String FEE_RATE, LocalDateTime After_PBCT_BEGN_DTM,
-            LocalDateTime After_PBCT_CLS_DTM, String PBCT_CLTR_STAT_NM, String USCBD_CNT){
+            int gonggoNum, int gongmaeNum, int gongmaeConditionNum, int itemNum,
+            int itemHistoryNum, String screenGroupCode, String categoryName,
+            String bidNum, String itemName, String itemManageNum,
+            String addressOld, String addressNew, String disposalMethodCode,
+            String disposalMethodName, String bidMethod, String minimumBidPrice,
+            String averagePrice, String feeRate, LocalDateTime bidStartDate,
+            LocalDateTime bidEndDate, String itemStatus, String bidFailCount){
         try {
             stat.executeUpdate("INSERT INTO items VALUES " +
-                    "(" + PLNM_NO + "," +
-                    "" + PBCT_NO + "," +
-                    "" + PBCT_CDTN_NO + "," +
-                    "" + CLTR_NO + "," +
-                    "" + CLTR_HSTR_NO + "," +
-                    "'" + SCRN_GRP_CD + "'," +
-                    "'" + CTGR_FULL_NM + "'," +
-                    "'" + BID_MNMT_NO + "'," +
-                    "'" + CLTR_NM + "'," +
-                    "'" + CLTR_MNMT_NO + "'," +
-                    "'" + LDNM_ADRS + "'," +
-                    "'" + NMRD_ADRS + "'," +
-                    "'" + DPSL_MTD_CD + "'," +
-                    "'" + DPSL_MTD_NM + "'," +
-                    "'" + BID_MTD_NM + "'," +
-                    "'" + MIN_BID_PRC + "'," +
-                    "'" + APSL_ASES_AVG_AMT + "'," +
-                    "'" + FEE_RATE + "'," +
-                    "'" + After_PBCT_BEGN_DTM + "'," +
-                    "'" + After_PBCT_CLS_DTM + "'," +
-                    "'" + PBCT_CLTR_STAT_NM + "'," +
-                    "'" + USCBD_CNT +"')");
+                    "(" + gonggoNum + "," +
+                    "" + gongmaeNum + "," +
+                    "" + gongmaeConditionNum + "," +
+                    "" + itemNum + "," +
+                    "" + itemHistoryNum + "," +
+                    "'" + screenGroupCode + "'," +
+                    "'" + categoryName + "'," +
+                    "'" + bidNum + "'," +
+                    "'" + itemName + "'," +
+                    "'" + itemManageNum + "'," +
+                    "'" + addressOld + "'," +
+                    "'" + addressNew + "'," +
+                    "'" + disposalMethodCode + "'," +
+                    "'" + disposalMethodName + "'," +
+                    "'" + bidMethod + "'," +
+                    "'" + minimumBidPrice + "'," +
+                    "'" + averagePrice + "'," +
+                    "'" + feeRate + "'," +
+                    "'" + bidStartDate + "'," +
+                    "'" + bidEndDate + "'," +
+                    "'" + itemStatus + "'," +
+                    "'" + bidFailCount +"')");
         } catch (SQLException e) {
             System.out.println("INSERT Fail");
             e.printStackTrace();
